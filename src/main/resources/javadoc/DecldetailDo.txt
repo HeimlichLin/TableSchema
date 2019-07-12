@@ -1,0 +1,299 @@
+package com.doc.common.bean; 
+ 
+public class DecldetailDo { 
+ 
+	public enum COLUMNS { 
+		D8DECLNO("D8報單號碼"), 
+		NWGHT("淨重"), 
+		UPRICE("單價"), 
+		CUR("幣別"), 
+		VALUEAMT("完稅價格"), 
+		VALUEQTY("完稅數量"), 
+		DUTYRATE("進口稅率"), 
+		UNITDUTY("單位稅額"), 
+		ODECLNO("原報單號碼"), 
+		OITEMNO("原報單項次"), 
+		CCCCODE("商品分類號列"), 
+		COMDTAXRATE("貨物稅率"), 
+		STRTYPE("進出倉別"), 
+		DUTYTYPE("納辦"), 
+		STATMODE("統計方式"), 
+		MSGTYPE("EDI訊息別"), 
+		D8DATE("原進倉日期"), 
+		PRODCOUNTRY("產地"), 
+		BONDNO("監管編號"), 
+		DECLNO("報單號碼"), 
+		ITEMNO("項次"), 
+		PRDTNO("料號"), 
+		DESCRIP("貨名"), 
+		BRAND("廠牌"), 
+		MODEL("型號"), 
+		SPEC("規格"), 
+		QTY("數量"), 
+		UNIT("單位") 
+		; 
+		final String name; 
+	 
+		private COLUMNS(final String name) { 
+			this.name = name; 
+		} 
+	 
+		public String getName() { 
+			return this.name; 
+		} 
+	} 
+ 
+	private String d8declno; 
+	private String nwght; 
+	private String uprice; 
+	private String cur; 
+	private String valueamt; 
+	private String valueqty; 
+	private String dutyrate; 
+	private String unitduty; 
+	private String odeclno; 
+	private String oitemno; 
+	private String ccccode; 
+	private String comdtaxrate; 
+	private String strtype; 
+	private String dutytype; 
+	private String statmode; 
+	private String msgtype; 
+	private String d8date; 
+	private String prodcountry; 
+	private String bondno; 
+	private String declno; 
+	private String itemno; 
+	private String prdtno; 
+	private String descrip; 
+	private String brand; 
+	private String model; 
+	private String spec; 
+	private String qty; 
+	private String unit; 
+	
+	public String getD8declno() { 
+		return d8declno; 
+	} 
+ 
+	public void setD8declno(String d8declno) { 
+		this.d8declno = d8declno; 
+	} 
+ 
+	public String getNwght() { 
+		return nwght; 
+	} 
+ 
+	public void setNwght(String nwght) { 
+		this.nwght = nwght; 
+	} 
+ 
+	public String getUprice() { 
+		return uprice; 
+	} 
+ 
+	public void setUprice(String uprice) { 
+		this.uprice = uprice; 
+	} 
+ 
+	public String getCur() { 
+		return cur; 
+	} 
+ 
+	public void setCur(String cur) { 
+		this.cur = cur; 
+	} 
+ 
+	public String getValueamt() { 
+		return valueamt; 
+	} 
+ 
+	public void setValueamt(String valueamt) { 
+		this.valueamt = valueamt; 
+	} 
+ 
+	public String getValueqty() { 
+		return valueqty; 
+	} 
+ 
+	public void setValueqty(String valueqty) { 
+		this.valueqty = valueqty; 
+	} 
+ 
+	public String getDutyrate() { 
+		return dutyrate; 
+	} 
+ 
+	public void setDutyrate(String dutyrate) { 
+		this.dutyrate = dutyrate; 
+	} 
+ 
+	public String getUnitduty() { 
+		return unitduty; 
+	} 
+ 
+	public void setUnitduty(String unitduty) { 
+		this.unitduty = unitduty; 
+	} 
+ 
+	public String getOdeclno() { 
+		return odeclno; 
+	} 
+ 
+	public void setOdeclno(String odeclno) { 
+		this.odeclno = odeclno; 
+	} 
+ 
+	public String getOitemno() { 
+		return oitemno; 
+	} 
+ 
+	public void setOitemno(String oitemno) { 
+		this.oitemno = oitemno; 
+	} 
+ 
+	public String getCcccode() { 
+		return ccccode; 
+	} 
+ 
+	public void setCcccode(String ccccode) { 
+		this.ccccode = ccccode; 
+	} 
+ 
+	public String getComdtaxrate() { 
+		return comdtaxrate; 
+	} 
+ 
+	public void setComdtaxrate(String comdtaxrate) { 
+		this.comdtaxrate = comdtaxrate; 
+	} 
+ 
+	public String getStrtype() { 
+		return strtype; 
+	} 
+ 
+	public void setStrtype(String strtype) { 
+		this.strtype = strtype; 
+	} 
+ 
+	public String getDutytype() { 
+		return dutytype; 
+	} 
+ 
+	public void setDutytype(String dutytype) { 
+		this.dutytype = dutytype; 
+	} 
+ 
+	public String getStatmode() { 
+		return statmode; 
+	} 
+ 
+	public void setStatmode(String statmode) { 
+		this.statmode = statmode; 
+	} 
+ 
+	public String getMsgtype() { 
+		return msgtype; 
+	} 
+ 
+	public void setMsgtype(String msgtype) { 
+		this.msgtype = msgtype; 
+	} 
+ 
+	public String getD8date() { 
+		return d8date; 
+	} 
+ 
+	public void setD8date(String d8date) { 
+		this.d8date = d8date; 
+	} 
+ 
+	public String getProdcountry() { 
+		return prodcountry; 
+	} 
+ 
+	public void setProdcountry(String prodcountry) { 
+		this.prodcountry = prodcountry; 
+	} 
+ 
+	public String getBondno() { 
+		return bondno; 
+	} 
+ 
+	public void setBondno(String bondno) { 
+		this.bondno = bondno; 
+	} 
+ 
+	public String getDeclno() { 
+		return declno; 
+	} 
+ 
+	public void setDeclno(String declno) { 
+		this.declno = declno; 
+	} 
+ 
+	public String getItemno() { 
+		return itemno; 
+	} 
+ 
+	public void setItemno(String itemno) { 
+		this.itemno = itemno; 
+	} 
+ 
+	public String getPrdtno() { 
+		return prdtno; 
+	} 
+ 
+	public void setPrdtno(String prdtno) { 
+		this.prdtno = prdtno; 
+	} 
+ 
+	public String getDescrip() { 
+		return descrip; 
+	} 
+ 
+	public void setDescrip(String descrip) { 
+		this.descrip = descrip; 
+	} 
+ 
+	public String getBrand() { 
+		return brand; 
+	} 
+ 
+	public void setBrand(String brand) { 
+		this.brand = brand; 
+	} 
+ 
+	public String getModel() { 
+		return model; 
+	} 
+ 
+	public void setModel(String model) { 
+		this.model = model; 
+	} 
+ 
+	public String getSpec() { 
+		return spec; 
+	} 
+ 
+	public void setSpec(String spec) { 
+		this.spec = spec; 
+	} 
+ 
+	public String getQty() { 
+		return qty; 
+	} 
+ 
+	public void setQty(String qty) { 
+		this.qty = qty; 
+	} 
+ 
+	public String getUnit() { 
+		return unit; 
+	} 
+ 
+	public void setUnit(String unit) { 
+		this.unit = unit; 
+	} 
+ 
+} 
