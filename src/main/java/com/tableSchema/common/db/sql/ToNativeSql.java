@@ -1,7 +1,7 @@
-package com.tableSchema.common.db.sql;
-
-public interface ToNativeSql {
-	
-	String toNativeSql();
-
-}
+//package com.tableSchema.common.db.sql;
+//
+//public interface ToNativeSql {
+//	
+//	String toNativeSql();
+//
+//}

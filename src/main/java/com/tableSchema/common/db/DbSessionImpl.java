@@ -32,7 +32,7 @@ public class DbSessionImpl implements DbSession {
 		try {
 			this.initial().setAutoCommit(false);
 		} catch (final SQLException e) {
-			throw new TxBusinessException("beginTransaction faill", e);
+			throw new TxBusinessException("beginTransaction fail", e);
 		}
 	}
 
@@ -40,7 +40,7 @@ public class DbSessionImpl implements DbSession {
 		try {
 			this.initial().commit();
 		} catch (final SQLException e) {
-			throw new TxBusinessException("commit faill", e);
+			throw new TxBusinessException("commit fail", e);
 		}
 	}
 
@@ -52,7 +52,7 @@ public class DbSessionImpl implements DbSession {
 		try {
 			this.initial().close();
 		} catch (final SQLException e) {
-			throw new TxBusinessException("close faill", e);
+			throw new TxBusinessException("close fail", e);
 		}
 
 	}
@@ -66,7 +66,7 @@ public class DbSessionImpl implements DbSession {
 			RowMapList result = this.result2RowMapList(resultSet);
 			return result;
 		} catch (final Exception e) {
-			throw new TxBusinessException("query faill", e);
+			throw new TxBusinessException("query fail", e);
 		}
 	}
 	
@@ -82,7 +82,7 @@ public class DbSessionImpl implements DbSession {
 			RowMapList result = this.result2RowMapList(resultSet);
 			return result;
 		} catch (final Exception e) {
-			throw new TxBusinessException("query faill", e);
+			throw new TxBusinessException("query fail", e);
 		}
 	}
 
@@ -102,7 +102,7 @@ public class DbSessionImpl implements DbSession {
 			}
 			return rowMapList;
 		} catch (final Exception e) {
-			throw new TxBusinessException("result2RowMapList faill", e);
+			throw new TxBusinessException("result2RowMapList fail", e);
 		}
 	}
 

@@ -15,9 +15,9 @@ public interface DbSession {
 
 	Connection getConnection();
 
-	RowMapList query(String sql);
+//	RowMapList query(String sql);
 	
-	RowMapList query(String sql, SqlWhere sqlWhere);
+//	RowMapList query(String sql, SqlWhere sqlWhere);
 	
 	<Po> List<Po> select(Converter<Po> converter, String sql);
 	
