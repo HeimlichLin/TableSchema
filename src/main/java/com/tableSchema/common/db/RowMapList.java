@@ -11,6 +11,7 @@ public class RowMapList implements Iterable<RowMap> {
 	public void add(RowMap rowMap) {
 		this.rowMapList.add(rowMap);
 	}
+	
 	public void remove(RowMap rowMap){
 		this.rowMapList.remove(rowMap);
 	}
