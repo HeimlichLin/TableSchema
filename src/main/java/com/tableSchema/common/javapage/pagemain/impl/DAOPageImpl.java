@@ -37,7 +37,7 @@ public class DAOPageImpl implements PageMain {
 		StringBuilder sb = new StringBuilder();
 		sb.append("public class " + this.dto.getDto().getTableNameDAOImplFirstWorldUp()
 				+ " extends GeneralDAOImpl<" + this.dto.getDto().getTableNameDoFirstWorldUp()
-				+ "> implements " + this.dto.getDto().getTableNameDAOImplFirstWorldUp() + " { \n");
+				+ "> implements " + this.dto.getDto().getTableNameDAOFirstWorldUp() + " { \n");
 		sb.append(this.getInstanceString());
 		sb.append(this.getTableNameString());
 		sb.append(this.getVariableString());

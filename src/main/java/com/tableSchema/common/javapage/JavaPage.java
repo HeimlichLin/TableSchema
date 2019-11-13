@@ -44,7 +44,8 @@ public class JavaPage {
 		this.logger.info("建立資料夾 : " + filePath);
 		File file = new File(filePath);
     	if (!file.exists()) {
-    		file.getParentFile().mkdir();
+    		System.out.println(file.getParentFile());
+    		file.getParentFile().mkdirs();
     	}
     	try {
     		this.logger.info("開始產生檔案 : " + filePath);
