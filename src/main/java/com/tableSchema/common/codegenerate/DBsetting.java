@@ -6,22 +6,23 @@ public enum DBsetting {
 	URL("jdbc.url"), //
 	USERNAME("jdbc.username"), //
 	PASSWORD("jdbc.password"), //
+	OWNER("jdbc.owner"), //
 	;
-	
+
 	final String name;
 	final String code;
 
 	private DBsetting(String code) {
-		this.name = name();
+		this.name = this.name();
 		this.code = code;
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public String toText() {
-		return code;
+		return this.code;
 	}
-	
+
 }

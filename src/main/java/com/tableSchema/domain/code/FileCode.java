@@ -1,12 +1,14 @@
 package com.tableSchema.domain.code;
 
 public enum FileCode {
-	
+
 	EXCEL_PATH("表格欄位內容", "excel/"), //	
-	JAVA_DO_PATH("表格欄位內容", "java/do/"), //	
-	JAVA_DAOIMPL_PATH("表格欄位內容", "java/daoImpl/") //	
+	JAVA_PO_PATH("表格欄位內容", "java/po/impl/"), //	
+	JAVA_POIMPL_PATH("表格欄位內容", "java/po/"), //	
+	JAVA_DAO_PATH("表格欄位內容", "java/dao/"), //	
+	JAVA_DAOIMPL_PATH("表格欄位內容", "java/dao/impl/") //	
 	;
-	
+
 	final String description;
 	final String path;
 
@@ -16,11 +18,11 @@ public enum FileCode {
 	}
 
 	public String getDescription() {
-		return description;
+		return this.description;
 	}
 
 	public String getPath() {
-		return path;
+		return this.path;
 	}
 
 }

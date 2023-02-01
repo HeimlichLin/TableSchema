@@ -17,6 +17,7 @@ public class TableSchemaController {
 		this.logger.info("-----End----");
 	}	
 	
+	
 	public void execute(String tableName) {
     	this.logger.info("-----Start 產生 DO & DAO JAVA-----");
     	this.service.createJavePage(tableName);		

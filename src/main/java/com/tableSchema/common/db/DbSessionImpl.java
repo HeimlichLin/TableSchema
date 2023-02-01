@@ -28,6 +28,7 @@ public class DbSessionImpl implements DbSession {
 		this.dbSetting = dbSetting;
 	}
 
+	@Override
 	public void beginTransaction() {
 		try {
 			this.initial().setAutoCommit(false);
@@ -36,6 +37,7 @@ public class DbSessionImpl implements DbSession {
 		}
 	}
 
+	@Override
 	public void commit() {
 		try {
 			this.initial().commit();
@@ -44,10 +46,12 @@ public class DbSessionImpl implements DbSession {
 		}
 	}
 
+	@Override
 	public Connection getConnection() {
 		return this.initial();
 	}
 
+	@Override
 	public void close() {
 		try {
 			this.initial().close();
@@ -63,23 +67,26 @@ public class DbSessionImpl implements DbSession {
 			final PreparedStatement preparedStatement = connection
 					.prepareStatement(sql);
 			final ResultSet resultSet = preparedStatement.executeQuery();
-			RowMapList result = this.result2RowMapList(resultSet);
+			final RowMapList result = this.result2RowMapList(resultSet);
+			ConnectionUitls.close(preparedStatement, resultSet);
 			return result;
 		} catch (final Exception e) {
 			throw new TxBusinessException("query fail", e);
 		}
 	}
-	
+
 	public RowMapList query(final String sql, final SqlWhere sqlWhere) {
 		try {
 			final Connection connection = this.initial();
 			final PreparedStatement preparedStatement = connection
 					.prepareStatement(sql);
-			for (String key : sqlWhere.toMap().keySet()) {
-				preparedStatement.setString(Integer.parseInt(key), sqlWhere.toMap().get(key));
+			for (final String key : sqlWhere.toMap().keySet()) {
+				preparedStatement.setString(Integer.parseInt(key),
+						sqlWhere.toMap().get(key));
 			}
 			final ResultSet resultSet = preparedStatement.executeQuery();
-			RowMapList result = this.result2RowMapList(resultSet);
+			final RowMapList result = this.result2RowMapList(resultSet);
+			ConnectionUitls.close(preparedStatement, resultSet);
 			return result;
 		} catch (final Exception e) {
 			throw new TxBusinessException("query fail", e);
@@ -106,7 +113,9 @@ public class DbSessionImpl implements DbSession {
 		}
 	}
 
-	public <Po> List<Po> select(final Converter<Po> converter, final String sql) {
+	@Override
+	public <Po> List<Po> select(final Converter<Po> converter,
+			final String sql) {
 		final RowMapList rowMapList = this.query(sql);
 		final List<Po> pos = new ArrayList<Po>();
 		final Iterator<RowMap> rowMapIterator = rowMapList.iterator();
@@ -115,8 +124,10 @@ public class DbSessionImpl implements DbSession {
 		}
 		return pos;
 	}
-	
-	public <Po> List<Po> select(final Converter<Po> converter, final String sql, final SqlWhere sqlWhere) {
+
+	@Override
+	public <Po> List<Po> select(final Converter<Po> converter, final String sql,
+			final SqlWhere sqlWhere) {
 		final RowMapList rowMapList = this.query(sql, sqlWhere);
 		final List<Po> pos = new ArrayList<Po>();
 		final Iterator<RowMap> rowMapIterator = rowMapList.iterator();

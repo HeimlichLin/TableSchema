@@ -1,0 +1,21 @@
+package com.doc.common.po; 
+ 
+public interface IEhuMsgSwitchLogPo {
+ 
+	String getEhustatus();
+ 
+	void setEhustatus(final String ehustatus);
+ 
+	java.sql.Timestamp getLastupdate();
+ 
+	void setLastupdate(final java.sql.Timestamp lastupdate);
+ 
+	String getUpdateuserid();
+ 
+	void setUpdateuserid(final String updateuserid);
+ 
+	String getLinetype();
+ 
+	void setLinetype(final String linetype);
+ 
+}

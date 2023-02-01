@@ -17,20 +17,24 @@ import org.slf4j.LoggerFactory;
 import com.tableSchema.common.codegenerate.CodeParm;
 import com.tableSchema.common.codegenerate.DBsetting;
 import com.tableSchema.common.context.AppContext;
+import com.tableSchema.common.exception.TxBusinessException;
 import com.tableSchema.common.utils.FileLoaderUtil;
 
 public class ConnectionUitls {
-	
-	private static Logger LOGGER = LoggerFactory.getLogger(ConnectionUitls.class);
-	
+
+	private static Logger LOGGER = LoggerFactory
+			.getLogger(ConnectionUitls.class);
+
 	public static Connection getConnection(String dbString) {
 		System.setProperty(CodeParm.DB_SETTING.name(), dbString);
 		return getConnection();
 	}
 
 	public static Connection getConnection() {
-		final String dbProperties = AppContext.get().getValue(CodeParm.DB_SETTING.name(), "db.properties");
-		final File f = FileLoaderUtil.getResourcesFile(ConnectionUitls.class, dbProperties);
+		final String dbProperties = AppContext.get()
+				.getValue(CodeParm.DB_SETTING.name(), "db.properties");
+		final File f = FileLoaderUtil.getResourcesFile(ConnectionUitls.class,
+				dbProperties);
 		final Properties properties = new Properties();
 		try {
 			properties.load(new FileInputStream(f));
@@ -41,12 +45,14 @@ public class ConnectionUitls {
 		}
 
 		final String url = properties.getProperty(DBsetting.URL.toText());
-		final String driver = properties.getProperty(DBsetting.DRIVER_CLASS_NAME.toText());
+		final String driver = properties
+				.getProperty(DBsetting.DRIVER_CLASS_NAME.toText());
 		Connection conn = null;
 		final Properties props = new Properties();
 		props.put("remarksReporting", "true");
 		props.put("user", properties.getProperty(DBsetting.USERNAME.toText()));
-		props.put("password", properties.getProperty(DBsetting.PASSWORD.toText()));
+		props.put("password",
+				properties.getProperty(DBsetting.PASSWORD.toText()));
 
 		try {
 			Class.forName(driver);
@@ -58,23 +64,22 @@ public class ConnectionUitls {
 		}
 		return conn;
 	}
-	
-	public static void closeConnection(Connection conn, PreparedStatement ps) 
-			throws SQLException {
-		try {			
+
+	public static void close(PreparedStatement ps, ResultSet rs) {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
 			if (ps != null) {
 				ps.close();
 			}
-			if (conn != null) {
-				conn.close();
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (final SQLException e) {
+			throw new TxBusinessException("Close faill", e);
 		}
 	}
-	
-	public static void close(Connection conn, PreparedStatement ps, ResultSet rs) 
-			throws SQLException {
+
+	public static void close(Connection conn, PreparedStatement ps,
+			ResultSet rs) {
 		try {
 			if (rs != null) {
 				rs.close();
@@ -85,8 +90,8 @@ public class ConnectionUitls {
 			if (conn != null) {
 				conn.close();
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (final SQLException e) {
+			throw new TxBusinessException("Close faill", e);
 		}
 	}
 
